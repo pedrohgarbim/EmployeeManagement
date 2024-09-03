@@ -1,4 +1,5 @@
 using EmployeeManagement.Data;
+using EmployeeManagement.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.InMemory;
 namespace EmployeeManagement
@@ -21,6 +22,11 @@ namespace EmployeeManagement
                     .AllowAnyHeader();
                 });
             });
+
+            // add the employee to the DependencyInjection 
+            builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
+            builder.Services.AddControllers();
 
             var app = builder.Build();
 
