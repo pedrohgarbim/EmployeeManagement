@@ -40,11 +40,6 @@ namespace EmployeeManagement.Repositories
             return await _context.Employees.FindAsync(id);
         }
 
-        public async Task<Employee?> GetByNameAsync(string name)
-        {
-            return await _context.Employees.FindAsync(name);
-        }
-
         public async Task UpdateEmployeeAsync(Employee employee)
         {
             _context.Employees.Update(employee);
